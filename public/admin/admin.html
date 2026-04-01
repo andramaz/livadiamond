@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FK Diamond Yönetim Paneli</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-card" style="width:min(1100px, calc(100% - 32px));">
+    <div class="topbar">
+      <div>
+        <h1 style="margin:0;">Yönetim Paneli</h1>
+        <p class="muted" style="margin:6px 0 0;">Ürün ekle / düzenle (EN + TR) ve görsel yükle</p>
+      </div>
+      <button id="logoutBtn" class="btn">Çıkış Yap</button>
+    </div>
+
+    <div class="grid">
+      <div>
+        <h2 style="margin:0 0 10px;">Ürün Ekle / Düzenle</h2>
+        <form id="productForm" class="admin-form">
+          <input type="hidden" id="productId" />
+
+          <label>Kategori</label>
+          <select id="categorySelect" required></select>
+
+          <label>Alt Kategori</label>
+          <select id="subcategorySelect">
+            <option value="">(İsteğe bağlı)</option>
+          </select>
+
+          <label>Fiyat (TRY)</label>
+          <input id="price" type="number" min="0" placeholder="4250" />
+
+          <label>Durum</label>
+          <select id="status">
+            <option value="available">aktif</option>
+            <option value="sold">satıldı</option>
+            <option value="hidden">gizli</option>
+          </select>
+
+          <label><input type="checkbox" id="bestSeller" /> Çok Satan</label>
+
+          <label>Taş</label>
+          <input id="stone" type="text" placeholder="Diamond / None" />
+
+          <label>Materyaller (virgülle ayır)</label>
+          <input id="materials" type="text" placeholder="14K Gold, Diamond" />
+
+          <label>Görsel Yükle</label>
+          <input id="imageFiles" type="file" accept="image/*" multiple />
+
+          <label>Görsel URL'leri (isteğe bağlı, her satıra bir tane)</label>
+          <textarea id="images" rows="3" placeholder="https://...&#10;https://..."></textarea>
+
+          <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
+
+          <label>Ürün Adı (EN)</label>
+          <input id="nameEn" type="text" required />
+
+          <label>Açıklama (EN)</label>
+          <textarea id="descEn" rows="3" required></textarea>
+
+          <label>Ürün Adı (TR)</label>
+          <input id="nameTr" type="text" required />
+
+          <label>Açıklama (TR)</label>
+          <textarea id="descTr" rows="3" required></textarea>
+
+          <div class="actions">
+            <button type="submit" class="btn primary">Kaydet</button>
+            <button type="button" id="resetBtn" class="btn">Temizle</button>
+          </div>
+
+          <p id="formError" class="error"></p>
+        </form>
+      </div>
+
+<div class="products-panel">
+  <div class="products-panel-top">
+    <h2 style="margin:0;">Ürünler</h2>
+    <input
+      type="text"
+      id="productSearch"
+      class="admin-search"
+      placeholder="Ürün ara... isim / id"
+    />
+  </div>
+
+  <div class="products-table-wrap">
+    <table class="table" id="productsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Ad (EN)</th>
+          <th>Durum</th>
+          <th>Çok Satan</th>
+          <th>İşlemler</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

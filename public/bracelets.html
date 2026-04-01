@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liva Diamond - Bracelets</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page-category-key="bracelets">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Liva Diamond</a>
+
+      <nav class="nav" id="desktopNav">
+        <div class="nav-item" data-cat="rings">
+          <a href="rings.html" class="nav-link" data-i18n="navRings">Rings</a>
+          <div class="nav-dropdown" id="dd-rings"></div>
+        </div>
+
+        <div class="nav-item" data-cat="necklaces">
+          <a href="necklaces.html" class="nav-link" data-i18n="navNecklaces">Necklaces</a>
+          <div class="nav-dropdown" id="dd-necklaces"></div>
+        </div>
+
+        <div class="nav-item" data-cat="earrings">
+          <a href="earrings.html" class="nav-link" data-i18n="navEarrings">Earrings</a>
+          <div class="nav-dropdown" id="dd-earrings"></div>
+        </div>
+
+        <div class="nav-item" data-cat="bracelets">
+          <a href="bracelets.html" class="nav-link" data-i18n="navBracelets">Bracelets</a>
+          <div class="nav-dropdown" id="dd-bracelets"></div>
+        </div>
+
+        <div class="nav-item" data-cat="collections">
+          <a href="collections.html" class="nav-link" data-i18n="navCollections">Collections</a>
+          <div class="nav-dropdown" id="dd-collections"></div>
+        </div>
+
+        <a href="about.html" class="nav-link" data-i18n="navAbout">About</a>
+        <a href="#contactSection" class="nav-link" data-i18n="navContact">Contact</a>
+
+        <div class="nav-item lang-switcher">
+          <a href="#" class="nav-link lang-current" id="languageCurrent">
+            <span>🌐 EN</span>
+          </a>
+
+          <div class="nav-dropdown" id="languageDropdown">
+            <a href="#" data-lang="tr" class="lang-option">
+              <img src="/assets/images/tr-flag.png" alt="TR" class="lang-flag">
+              <span>TR</span>
+            </a>
+
+            <a href="#" data-lang="en" class="lang-option">
+              <img src="/assets/images/en-flag.png" alt="EN" class="lang-flag">
+              <span>EN</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-group" data-cat="rings">
+        <div class="mobile-nav-row">
+          <a href="rings.html" data-i18n="navRings">Rings</a>
+          <button class="mobile-nav-arrow" aria-label="Expand">›</button>
+        </div>
+        <div class="mobile-nav-subs" id="mob-dd-rings"></div>
+      </div>
+      <div class="mobile-nav-group" data-cat="necklaces">
+        <div class="mobile-nav-row">
+          <a href="necklaces.html" data-i18n="navNecklaces">Necklaces</a>
+          <button class="mobile-nav-arrow" aria-label="Expand">›</button>
+        </div>
+        <div class="mobile-nav-subs" id="mob-dd-necklaces"></div>
+      </div>
+      <div class="mobile-nav-group" data-cat="earrings">
+        <div class="mobile-nav-row">
+          <a href="earrings.html" data-i18n="navEarrings">Earrings</a>
+          <button class="mobile-nav-arrow" aria-label="Expand">›</button>
+        </div>
+        <div class="mobile-nav-subs" id="mob-dd-earrings"></div>
+      </div>
+      <div class="mobile-nav-group" data-cat="bracelets">
+        <div class="mobile-nav-row">
+          <a href="bracelets.html" data-i18n="navBracelets">Bracelets</a>
+          <button class="mobile-nav-arrow" aria-label="Expand">›</button>
+        </div>
+        <div class="mobile-nav-subs" id="mob-dd-bracelets"></div>
+      </div>
+      <div class="mobile-nav-group" data-cat="collections">
+        <div class="mobile-nav-row">
+          <a href="collections.html" data-i18n="navCollections">Collections</a>
+          <button class="mobile-nav-arrow" aria-label="Expand">›</button>
+        </div>
+        <div class="mobile-nav-subs" id="mob-dd-collections"></div>
+      </div>
+      <a href="about.html" data-i18n="navAbout">About</a>
+      <a href="#contactSection" data-i18n="navContact">Contact</a>
+      <div class="mobile-nav-lang">
+        <a href="#" data-lang="en"><img src="/assets/images/en-flag.png" alt="EN" class="lang-flag"> EN</a>
+        <a href="#" data-lang="tr"><img src="/assets/images/tr-flag.png" alt="TR" class="lang-flag"> TR</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero-split">
+    <div class="container hero-split-grid">
+      <div class="hero-side hero-left">
+        <div class="top-search-box">
+          <input type="text" id="searchInput" placeholder="Search products..." />
+        </div>
+      </div>
+
+      <div class="hero-center">
+        <img src="assets/images/logo.png" alt="Liva Diamond Logo" class="hero-logo" />
+       <h1 data-i18n="heroTitle" class="hero-title">Timeless Elegance</h1>
+      </div>
+
+      <div class="hero-side hero-right">
+        <div class="hero-vertical-links">
+          <a href="index.html#newArrivalsSection" class="hero-side-link" data-i18n="heroNewArrivals">Explore New Arrivals</a>
+          <a href="index.html#bestSellersSection" class="hero-side-link" data-i18n="heroBestSellers">Explore Best Sellers</a>
+          <a href="index.html#catalogSection" class="hero-side-link" data-i18n="heroCatalog">Explore Catalog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="categoryChips" class="hidden"></div>
+
+  <!-- Catalog -->
+  <section id="catalogSection" class="catalog-section">
+    <main class="container">
+      <div class="catalog-header section-header-with-link">
+  <div class="catalog-heading">
+    <h2 data-i18n="navBracelets">Bracelets</h2>
+    <p id="resultCount">0 products</p>
+  </div>
+
+  <div class="catalog-header-actions">
+    <div class="sort-wrap">
+      <label for="sortSelect" class="sort-label" data-i18n="sortBy">Sort by</label>
+      <select id="sortSelect" class="sort-select">
+        <option value="featured" data-i18n="sortFeatured">Featured</option>
+        <option value="newest" data-i18n="sortNewest">Newest</option>
+        <option value="priceLow" data-i18n="sortPriceLow">Price: Low to High</option>
+        <option value="priceHigh" data-i18n="sortPriceHigh">Price: High to Low</option>
+        <option value="az" data-i18n="sortAZ">A–Z</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+      <section class="product-grid" id="productGrid">
+        <!-- generated by JS -->
+      </section>
+
+      <div class="empty-state hidden" id="emptyState">
+        <h3 data-i18n="emptyTitle">No products found</h3>
+        <p data-i18n="emptySubtitle">Try another keyword or category.</p>
+      </div>
+    </main>
+  </section>
+
+  <!-- Footer -->
+<footer class="site-footer" id="contactSection">
+  <div class="container footer-inner footer-contact-bar">
+    <div class="footer-contact-item">
+      <h5>WHATSAPP</h5>
+      <a href="https://wa.me/905383649718" target="_blank" rel="noopener noreferrer">
+        +90 538 364 97 18
+      </a>
+    </div>
+
+    <div class="footer-contact-item">
+      <h5>E-Mail</h5>
+      <a href="mailto:LivaDiamond@gmail.com">LivaDiamond@gmail.com</a>
+    </div>
+
+    <div class="footer-contact-item footer-social">
+      <div class="footer-social-icons">
+        <a
+          href="https://www.instagram.com/liva_mucevherat?igsh=MWZiNW54dXltM3gzdQ%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="social-icon"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1.2"></circle>
+          </svg>
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@livajewelery"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          class="social-icon"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 3v10.2a3.2 3.2 0 1 1-2.4-3.1"></path>
+            <path d="M14 3c1 2.1 2.5 3.4 4.8 3.6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Product Detail Modal -->
+  <div class="modal hidden" id="productModal" aria-hidden="true">
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <div class="modal-panel">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+
+      <div class="modal-content" id="modalContent">
+        <!-- generated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

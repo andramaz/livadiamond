@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LivaDiamond Admin Login</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-card">
+    <h1>Admin Login</h1>
+    <p class="muted">Sign in to manage products.</p>
+
+    <form id="loginForm" class="admin-form">
+      <label>Email</label>
+      <input id="email" type="email" placeholder="admin@livadiamond.com" required />
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="••••••••" required />
+
+      <button type="submit" class="btn primary">Sign In</button>
+      <p id="error" class="error"></p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const errorEl = document.getElementById("error");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorEl.textContent = "";
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (!res.ok) {
+        errorEl.textContent = "Invalid email or password.";
+        return;
+      }
+
+      location.href = "/admin/admin.html";
+    });
+  </script>
+</body>
+</html>

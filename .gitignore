@@ -1,0 +1,16 @@
+# Secrets — NEVER commit these
+.env
+.env.local
+.env.production
+
+# Database — contains real user/product data
+database.sqlite
+database.sqlite-shm
+database.sqlite-wal
+
+# Dependencies — install with npm install
+node_modules/
+
+# Uploaded product images — too large for git, serve from storage
+public/uploads/*
+!public/uploads/.gitkeep
