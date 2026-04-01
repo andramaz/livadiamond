@@ -79,7 +79,7 @@ function requireAdmin(req, res, next) {
 }
 
 // ---------- ensure uploads dir ----------
-const uploadsDir = path.join(__dirname, "..", "public", "uploads");
+const uploadsDir = process.env.UPLOADS_PATH || path.join(__dirname, "..", "public", "uploads");
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
