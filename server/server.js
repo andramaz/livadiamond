@@ -70,12 +70,18 @@ function loginRateLimit(req, res, next) {
 }
 
 // Serve static files from /public
-app.use(express.static(path.join(__dirname, "..", "public")));
+const publicDir = path.join(__dirname, "..", "public");
+app.use(express.static(publicDir));
 
 // If uploads are stored on a persistent volume (outside /public), serve them too
 if (process.env.UPLOADS_PATH) {
   app.use("/uploads", express.static(process.env.UPLOADS_PATH));
 }
+
+// Root route — serve index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
+});
 
 // ---------- auth helpers ----------
 function isAdmin(req) {
