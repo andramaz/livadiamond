@@ -66,6 +66,11 @@ function loginRateLimit(req, res, next) {
 // Serve static files from /public
 app.use(express.static(path.join(__dirname, "..", "public")));
 
+// If uploads are stored on a persistent volume (outside /public), serve them too
+if (process.env.UPLOADS_PATH) {
+  app.use("/uploads", express.static(process.env.UPLOADS_PATH));
+}
+
 // ---------- auth helpers ----------
 function isAdmin(req) {
   return Boolean(req.session?.admin?.id);
