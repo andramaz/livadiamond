@@ -12,6 +12,9 @@ const db = require("./db");
 
 const app = express();
 
+// Trust Railway's proxy so secure cookies work over HTTPS
+app.set("trust proxy", 1);
+
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true }));
 
