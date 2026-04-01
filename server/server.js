@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const session = require("express-session");
+const FileStore = require("session-file-store")(session);
 const bcrypt = require("bcrypt");
 const path = require("path");
 const fs = require("fs");
@@ -16,8 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const isProduction = process.env.NODE_ENV === "production";
 
+// ---------- session store ----------
+const sessionsDir = process.env.SESSIONS_PATH || path.join(__dirname, "..", "sessions");
+fs.mkdirSync(sessionsDir, { recursive: true });
+
 app.use(
   session({
+    store: new FileStore({ path: sessionsDir, retries: 1, ttl: 7200 }),
     secret: process.env.SESSION_SECRET || "dev_secret_change_me",
     resave: false,
     saveUninitialized: false,
@@ -25,7 +31,7 @@ app.use(
       httpOnly: true,
       sameSite: "lax",
       maxAge: 1000 * 60 * 60 * 2, // 2 hours
-      secure: isProduction        // HTTPS-only in production
+      secure: isProduction         // HTTPS-only in production
     }
   })
 );
