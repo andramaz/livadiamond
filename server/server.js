@@ -214,14 +214,14 @@ app.get("/admin", (req, res) => {
   if (isAdmin(req)) {
     return res.redirect("/admin/dashboard");
   }
-  return res.sendFile(path.join(__dirname, "..", "public", "login.html"));
+  return res.sendFile(path.join(__dirname, "..", "public", "admin", "login.html"));
 });
 
 app.get("/admin/dashboard", (req, res) => {
   if (!isAdmin(req)) {
     return res.redirect("/admin");
   }
-  return res.sendFile(path.join(__dirname, "..", "public", "admin.html"));
+  return res.sendFile(path.join(__dirname, "..", "public", "admin", "admin.html"));
 });
 
 // ---------- AUTH ROUTES ----------
