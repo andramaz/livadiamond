@@ -34,9 +34,6 @@ app.use(express.urlencoded({ extended: true }));
 const isProduction = process.env.NODE_ENV === "production";
 
 // ---------- session store ----------
-const sessionsDir = process.env.SESSIONS_PATH || path.join(__dirname, "..", "sessions");
-fs.mkdirSync(sessionsDir, { recursive: true });
-
 app.use(
   session({
     store: new FileStore({ path: sessionsDir, retries: 1, ttl: 7200 }),
