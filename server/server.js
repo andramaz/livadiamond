@@ -8,7 +8,13 @@ const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
 
+// Ensure the persistent data directory exists BEFORE opening the database
+if (process.env.DB_PATH) {
+  fs.mkdirSync(path.dirname(process.env.DB_PATH), { recursive: true });
+}
+
 const db = require("./db");
+console.log("📦 Database path:", process.env.DB_PATH || path.join(__dirname, "..", "database.sqlite"));
 
 const app = express();
 
