@@ -8,13 +8,20 @@ const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
 
-// Ensure the persistent data directory exists BEFORE opening the database
-if (process.env.DB_PATH) {
-  fs.mkdirSync(path.dirname(process.env.DB_PATH), { recursive: true });
-}
+// Ensure all persistent directories exist BEFORE anything else runs
+const dataDir = process.env.DB_PATH ? path.dirname(process.env.DB_PATH) : null;
+if (dataDir) fs.mkdirSync(dataDir, { recursive: true });
+
+const sessionsDir = process.env.SESSIONS_PATH || path.join(__dirname, "..", "sessions");
+fs.mkdirSync(sessionsDir, { recursive: true });
+
+const uploadsDir = process.env.UPLOADS_PATH || path.join(__dirname, "..", "public", "uploads");
+fs.mkdirSync(uploadsDir, { recursive: true });
 
 const db = require("./db");
 console.log("📦 Database path:", process.env.DB_PATH || path.join(__dirname, "..", "database.sqlite"));
+console.log("📁 Sessions path:", sessionsDir);
+console.log("🖼️  Uploads path:", uploadsDir);
 
 const app = express();
 
@@ -104,11 +111,7 @@ function requireAdmin(req, res, next) {
   next();
 }
 
-// ---------- ensure uploads dir ----------
-const uploadsDir = process.env.UPLOADS_PATH || path.join(__dirname, "..", "public", "uploads");
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+// ---------- multer uses uploadsDir (created at startup above) ----------
 
 // ---------- multer config ----------
 const storage = multer.diskStorage({
